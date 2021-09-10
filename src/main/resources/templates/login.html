@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>HR Application Login Page</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link href="../static/css/loginpage.css" th:href="@{/css/loginpage.css}" rel="stylesheet" />
+</head>
+
+<body>
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <div class="fadeIn first">
+    </div>
+    <!-- Login Form -->
+    <form action="#" th:action="@{/login}" th:object="${loginForm}" method="post">
+      <div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></div>
+      <input type="text" th:field="*{userName}" id="userName" class="fadeIn second" name="userName" placeholder="username">
+      <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+      <input type="text" th:field="*{password}" id="password" class="fadeIn third" name="password" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
+
+<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
